@@ -1,4 +1,5 @@
 // You are using GCC
+// Finding if a given linked list is circular or not
 #include <stdio.h>
 #include <stdlib.h>
 struct Node
@@ -6,11 +7,11 @@ struct Node
     int data;
     struct Node* next;
 }*head, *tail;
-struct Node* getTail(struct Node** head)
+struct Node* getTail(struct Node** head, int size)
 {
     struct Node* tail = *head;
     int count = 1;
-    while(count < 4)
+    while(count < size)
     {
         tail = tail->next;
         count++;
@@ -42,6 +43,6 @@ int main()
     push(&head, 3);
     push(&head, 4);
     push(&head, 5);
-    getTail(&head);
-    getTail(&head);
+    getTail(&head, 4);
+    getTail(&head, 4);
 }
