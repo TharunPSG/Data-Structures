@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perspective Transform with Hover Animation</title>
+    <style>
+      /* Set up the container */
+      .container {
+        perspective: 1000px;
+        margin: 50px auto;
+        width: 300px;
+        height: 200px;
+      }
+
+      /* Set up the element to be transformed */
+      .box {
+        background-color: #333;
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        transform-origin: center center;
+      }
+
+      /* Set up the front and back faces of the element */
+      .box .front,
+      .box .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+
+      .box .front {
+        transform: rotateY(0);
+      }
+
+      .box .back {
+        transform: rotateY(180deg);
+      }
+
+      /* Set up the hover animation */
+      .box:hover {
+        transform: rotateY(180deg);
+      }
+
+      .box:hover .front {
+        transform: rotateY(-180deg);
+      }
+
+      .box:hover .back {
+        transform: rotateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="front">
+          <h1>Front Side</h1>
+        </div>
+        <div class="back">
+          <h1>Back Side</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

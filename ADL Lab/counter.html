@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Character, Line, and Word Counter</title>
+    <script>
+      function countText() {
+        // Get the text entered by the user
+        var text = document.getElementById("text-input").value;
+
+        // Count the number of characters, lines, and words
+        var numChars = text.length;
+        var numLines = text.split("\n").length;
+        var numWords = text.trim().split(/\s+/).length;
+
+        // Display the counts in an alert message
+        var message =
+          "Number of characters: " +
+          numChars +
+          "\n" +
+          "Number of lines: " +
+          numLines +
+          "\n" +
+          "Number of words: " +
+          numWords;
+        alert(message);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Character, Line, and Word Counter</h1>
+    <p>Enter text:</p>
+    <textarea id="text-input" rows="5" cols="40"></textarea><br /><br />
+    <button onclick="countText()">Submit</button>
+  </body>
+</html>
